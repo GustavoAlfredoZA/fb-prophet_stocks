@@ -127,7 +127,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Django Crontab
-
+SHELL='/bin/bash'
 CRONJOBS = [
-    ('*/5 * * * *', 'stocks.stockAnalisys.runAnalisys', '>> file.log')
+    ('0 16 * * *', 'stocks.stockAnalisys.runAnalisys', '>> file.log')
 ]
