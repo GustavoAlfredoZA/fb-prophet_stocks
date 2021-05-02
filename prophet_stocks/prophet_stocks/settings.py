@@ -131,5 +131,5 @@ CRONTAB_COMMAND_SUFFIX = '2>&1'
 
 SHELL='/bin/bash'
 CRONJOBS = [
-    ('0 16 * * *', 'stocks.stockAnalisys.runAnalisys', '>> file.log')
+    ('0 16 * * *', 'stocks.stockAnalisys.runAnalisys')
 ]
