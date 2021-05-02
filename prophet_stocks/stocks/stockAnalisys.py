@@ -66,7 +66,7 @@ for s in stockL:
     s.append(date(s[1],s[2],s[3]))
 
 def runAnalisys():
-    for stock in stocks:
-        analisys(stockL[0], stockL[1], stockL[2], stockL[3])
+    for stock in stockL:
+        analisys(stock[0], stock[1], stock[2], stock[3])
         time.sleep(random.randint(0,1))
-    subprocess.call("mv *.png static/img/", shell=True)
+    subprocess.call("mv *.png stocks/static/img/", shell=True)
