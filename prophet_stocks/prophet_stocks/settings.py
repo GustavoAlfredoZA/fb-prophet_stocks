@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-fjsqlvdc+hwc)p-_+v%)3#=sv48rmn2*m0v4-n@y7*o637st&j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fb-prophet-stocks.herokuapp.com']
 
 
 # Application definition
