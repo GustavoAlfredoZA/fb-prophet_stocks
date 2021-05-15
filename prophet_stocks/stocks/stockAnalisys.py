@@ -69,4 +69,6 @@ def runAnalisys():
     for stock in stockL:
         analisys(stock[0], stock[1], stock[2], stock[3])
         time.sleep(random.randint(0,1))
-    subprocess.call("mv *.png stocks/static/img/", shell=True)
+    subprocess.call("mv *.png static/img/", shell=True)
+    subprocess.call("ls", shell=True)
+    subprocess.call("ls static", shell=True)
