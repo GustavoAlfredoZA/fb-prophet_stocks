@@ -4,6 +4,8 @@ from django.template import loader
 import stocks.stockAnalisys
 import datetime
 from datetime import date
+from threading import Thread
+
 
 def index(request):
     #latest_question_list = s
@@ -19,7 +21,9 @@ def index(request):
     if(date.today().weekday()>5):
         return render(request, 'index.html', args)
     elif(datefile != date.today() and datetime.datetime.now().hour > 16):
-        stocks.stockAnalisys.runAnalisys()
+        thread = Thread(target = stocks.stockAnalisys.runAnalisys(), args = (10, ))
+        thread.start()
+        thread.join()
         f = open("stocks/date.txt", "w")
         f.write(str(date.today()))
         f.close()
