@@ -21,9 +21,8 @@ def index(request):
     if(date.today().weekday()>5):
         return render(request, 'index.html', args)
     elif(datefile != date.today() and datetime.datetime.now().hour > 16):
-        thread = Thread(target = stocks.stockAnalisys.runAnalisys(), args = (10, ))
+        thread = Thread(target = stocks.stockAnalisys.runAnalisys)
         thread.start()
-        thread.join()
         f = open("stocks/date.txt", "w")
         f.write(str(date.today()))
         f.close()
