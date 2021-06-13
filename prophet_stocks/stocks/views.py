@@ -11,6 +11,9 @@ import datetime
 from datetime import date
 from threading import Thread
 from stocks.forms import FundamentalForm
+from stocks.FAnalisys import *
+from stocks.TAnalisys import *
+
 
 
 def index(request):
@@ -45,12 +48,12 @@ class FundamentalView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         ticker = request.POST.get('Ticker')
-        
+        FA(ticker)
 
         return JsonResponse(
             {
                 'content': {
-                    'message': "Processing",
+                    'message': FA(ticker),
                 }
             }
         )
