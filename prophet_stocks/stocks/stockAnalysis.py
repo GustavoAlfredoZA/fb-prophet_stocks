@@ -9,7 +9,7 @@ import subprocess
 
 now = datetime.now()
 
-def analisys(ticker, opvYear, opvMonth, opvDay):
+def analysis(ticker, opvYear, opvMonth, opvDay):
     start_hist = dt.datetime(opvYear, opvMonth, opvDay)
     end_hist = dt.datetime(now.year, now.month, now.day)
     print(ticker, 'yahoo', start_hist, end_hist)
@@ -62,12 +62,13 @@ stockL=[['FB',   2012,  5, 12],
         ['HPE',  2015, 10, 19],
         ['AAPL', 1980, 12, 12]]
 
+
 for s in stockL:
     s.append(date(s[1],s[2],s[3]))
 
-def runAnalisys():
+def runAnalysis():
     for stock in stockL:
-        analisys(stock[0], stock[1], stock[2], stock[3])
+        analysis(stock[0], stock[1], stock[2], stock[3])
         time.sleep(random.randint(0,1))
     subprocess.call("mv *.png static/img/", shell=True)
     subprocess.call("ls", shell=True)

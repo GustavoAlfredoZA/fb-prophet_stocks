@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Fundamental analysis</title>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--<link rel="stylesheet" type="text/css" href="{% static "css/main.css"%}">-->
+    <main style="display: inline-flex;">
+      <div class="SocialMedia">
+        <article class="article">
+          <h1>Little fundamental analysis</h1><hr>
+          <form method="post" id="id_FundamentalForm" enctype="multipart/form-data" data-post-url="{% url 'Fundamental' %}">
+            <label for="cal"><h2>Write ticker</h2></label>
+            {% csrf_token %}
+            {{ form.as_ul }}
+            <!--<input type="text" required="" name="ticker" maxlength="10" id="id_ticker" autofocus="">-->
+            <button type="submit" name="execute_form_Fundamental" class="btn btn-primary btn-lg btn-block" id="id_button" value="Submit">Search</button>
+          </form>
+        </article>
+        <script>
+        $(function() {
+          'use strict';
+          $("#id_FundamentalForm").on('submit',function () {
+            var post_url = $("#id_FundamentalForm").data("#id_Ticker");
+            var formData = new FormData(this);
+            $.ajax({
+              url: post_url,
+              type: "POST",
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function (response){
+                var message = response.content.message
+                alert(message);
+              },
+            });
+            return false;
+          });
+        });
+        </script>
+      </div>
+    </main>
+
+  </body>
+</html>
