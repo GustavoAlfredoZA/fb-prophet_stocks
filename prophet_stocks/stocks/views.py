@@ -11,8 +11,8 @@ import datetime
 from datetime import date
 from threading import Thread
 from stocks.forms import FundamentalForm
-from stocks.FAnalisys import *
-from stocks.TAnalisys import *
+from stocks.FAnalysis import *
+from stocks.TAnalysis import *
 
 
 
