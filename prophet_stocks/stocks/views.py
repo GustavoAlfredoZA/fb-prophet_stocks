@@ -52,11 +52,7 @@ class FundamentalView(TemplateView):
         return JsonResponse(
             {
                 'content': {
-<<<<<<< HEAD
                     'message': FA(stocks)
-=======
-                    'message': FA(stocks),
->>>>>>> 1dfd8e370e9b07dd2b777415a3a3027da39c2a9a
                 }
             }
         )
