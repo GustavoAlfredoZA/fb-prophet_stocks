@@ -47,13 +47,12 @@ class FundamentalView(TemplateView):
         return context
 
     def post(self, request, *args, **kwargs):
-        ticker = request.POST.get('Ticker')
-        FA(ticker)
-
+        strStocks = request.POST.get('Ticker')
+        stocks = strStocks.split(' ')
         return JsonResponse(
             {
                 'content': {
-                    'message': FA(ticker),
+                    'message': FA(stocks)
                 }
             }
         )
