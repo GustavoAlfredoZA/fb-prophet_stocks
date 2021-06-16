@@ -5,5 +5,6 @@ import pandas as pd
 def FA(stocks):
     quoteTable = {}
     for ticker in stocks:
-        quoteTable[ticker] = si.get_quote_table(ticker)
+        quoteTable = si.get_quote_table(ticker)
+        quoteTable['Ticker'] = ticker
     return quoteTable

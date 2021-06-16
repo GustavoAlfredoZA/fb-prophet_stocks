@@ -4,9 +4,11 @@
   <head>
     <meta charset="utf-8">
     <title>Fundamental analysis</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
   </head>
   <body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static "css/main.css"%}">
     <main style="display: inline-flex;">
       <div class="SocialMedia">
@@ -19,10 +21,60 @@
             <!--<input type="text" required="" name="ticker" maxlength="10" id="id_ticker" autofocus="">-->
             <button type="submit" name="execute_form_Fundamental" class="btn btn-primary btn-lg btn-block" id="id_button" value="Submit">Search</button>
           </form>
+          <hr>
+          <table id="table_id" class="display">
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>1y Target Est</th>
+                <th>52 Week Range</th>
+                <th>Ask</th>
+                <th>Avg. Volume</th>
+                <th>Beta (5Y Monthly)</th>
+                <th>Bid</th>
+                <th>Day's Range</th>
+                <th>EPS (TTM)</th>
+                <th>EPS (TTM)</th>
+                <th>Ex-Dividend Date</th>
+                <th>Forward Dividend & Yield</th>
+                <th>Market Cap</th>
+                <th>Open</th>
+                <th>PE Ratio (TTM)</th>
+                <th>Previous Close</th>
+                <th>Quote Price</th>
+                <th>Volume</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
         </article>
         <script>
         $(function() {
           'use strict';
+          var table = $('#table_id').DataTable({
+            columns:[
+              {"data" : "Ticker",},
+              {"data" : "1y Target Est",            "defaultContent" : "Not available"},
+              {"data" : "52 Week Range",            "defaultContent" : "Not available"},
+              {"data" : "Ask",                      "defaultContent" : "Not available"},
+              {"data" : "Avg. Volume",              "defaultContent" : "Not available"},
+              {"data" : "Beta (5Y Monthly)",        "defaultContent" : "Not available"},
+              {"data" : "Bid",                      "defaultContent" : "Not available"},
+              {"data" : "Day's Range",              "defaultContent" : "Not available"},
+              {"data" : "EPS (TTM)",                "defaultContent" : "Not available"},
+              {"data" : "EPS (TTM)",                "defaultContent" : "Not available"},
+              {"data" : "Ex-Dividend Date",         "defaultContent" : "Not available"},
+              {"data" : "Forward Dividend & Yield", "defaultContent" : "Not available"},
+              {"data" : "Market Cap",               "defaultContent" : "Not available"},
+              {"data" : "Open",                     "defaultContent" : "Not available"},
+              {"data" : "PE Ratio (TTM)",           "defaultContent" : "Not available"},
+              {"data" : "Previous Close",           "defaultContent" : "Not available"},
+              {"data" : "Quote Price",              "defaultContent" : "Not available"},
+              {"data" : "Volume",                   "defaultContent" : "Not available"},
+            ]
+          });
           $("#id_FundamentalForm").on('submit',function () {
             var post_url = $("#id_FundamentalForm").data("#id_Ticker");
             var formData = new FormData(this);
@@ -34,12 +86,13 @@
               contentType: false,
               success: function (response){
                 var message = response.content.message
-                alert(message);
-                console.log(message);
+                console.log((message));
+                table.row.add(message).draw();
               },
             });
             return false;
           });
+
         });
         </script>
       </div>
