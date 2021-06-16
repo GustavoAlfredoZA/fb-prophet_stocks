@@ -1,4 +1,4 @@
-*.png
+prophet_stocks/static/img/*.png
 
 _pycache__/
 *.py[cod]
