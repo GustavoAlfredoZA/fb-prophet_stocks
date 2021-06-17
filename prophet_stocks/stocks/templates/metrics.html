@@ -20,9 +20,8 @@
     <main style="display: inline-flex;">
       <div class="SocialMedia">
         <article class="article">
-          <h1>Little fundamental analysis</h1><hr>
+          <h1>Fundamental analysis</h1><hr>
           <form method="post" id="id_FundamentalForm" enctype="multipart/form-data" data-post-url="{% url 'Fundamental' %}">
-            <label for="cal"><h2>Write ticker</h2></label>
             {% csrf_token %}
             {{ form.as_ul }}
             <!--<input type="text" required="" name="ticker" maxlength="10" id="id_ticker" autofocus="">-->
@@ -62,11 +61,7 @@
           'use strict';
           var table = $('#table_id').DataTable({
             dom: 'Bfrtip',
-            buttons: ['copy', 'csv', 'excel', {
-                extend: 'pdfHtml5',
-                orientation: 'landscape',
-                pageSize: '80'
-            }],
+            buttons: ['copy', 'csv', 'excel', 'print'],
             columns:[
               {"data" : "Ticker",},
               {"data" : "1y Target Est",            "defaultContent" : "Not available"},
