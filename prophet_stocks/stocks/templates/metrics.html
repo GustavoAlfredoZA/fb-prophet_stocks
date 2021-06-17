@@ -62,7 +62,11 @@
           'use strict';
           var table = $('#table_id').DataTable({
             dom: 'Bfrtip',
-            buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+            buttons: ['copy', 'csv', 'excel', {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: '80'
+            }],
             columns:[
               {"data" : "Ticker",},
               {"data" : "1y Target Est",            "defaultContent" : "Not available"},
