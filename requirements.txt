@@ -48,7 +48,6 @@ sqlparse==0.4.1
 ta==0.7.0
 tables==3.6.1
 testpath==0.4.4
-torch==1.6.0
 torch-lr-finder==0.2.1
 unicodecsv==0.14.1
 webargs==7.0.1
